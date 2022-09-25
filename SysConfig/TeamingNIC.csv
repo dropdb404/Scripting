@@ -1,0 +1,5 @@
+TeamName,ActiveMember,StandbyMember,LoadBalancingAlgorithm,TeamingMode,
+Data,Data 1,Data 2,Dynamic,SwitchIndependent
+Replication,Replication 1,Replication 2,Dynamic,SwitchIndependent
+Backup,Backup 1,Backup 2,Dynamic,SwitchIndependent
+MGMT,MGMT 1,MGMT 2,Dynamic,SwitchIndependent
