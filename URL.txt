@@ -2,4 +2,6 @@ https://learn.microsoft.com/answers/questions/178390/winrm-certificate-authentic
 https://4sysops.com/archives/powershell-remoting-over-https-with-a-self-signed-ssl-certificate/
 https://stackoverflow.com/questions/66013033/certificate-auth-the-specified-credentials-were-rejected-by-the-server#67422353
 https://learn.microsoft.com/en-us/windows-server/security/tls/what-s-new-in-tls-ssl-schannel-ssp-overview
+https://devblogs.microsoft.com/scripting/powershell-support-for-certificate-credentials/
+http://www.hurryupandwait.io/blog/certificate-password-less-based-authentication-in-winrm
 
