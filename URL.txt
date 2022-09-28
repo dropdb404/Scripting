@@ -4,4 +4,10 @@ https://stackoverflow.com/questions/66013033/certificate-auth-the-specified-cred
 https://learn.microsoft.com/en-us/windows-server/security/tls/what-s-new-in-tls-ssl-schannel-ssp-overview
 https://devblogs.microsoft.com/scripting/powershell-support-for-certificate-credentials/
 http://www.hurryupandwait.io/blog/certificate-password-less-based-authentication-in-winrm <----important
+https://www.youtube.com/watch?v=vcx0bIgGJXI
+http://vcloud-lab.com/entries/powershell/powershell-remoting-over-https-using-self-signed-ssl-certificate
+http://vcloud-lab.com/entries/powershell/powershell-winrm-https-ca-signed-certificate-configuration
+http://vcloud-lab.com/entries/powershell/powershell-ps-remoting-between-standalone-workgroup-computers
+http://vcloud-lab.com/entries/powershell/configure-powershell-winrm-to-use-openssl-generated-self-signed-certificate
+
 
