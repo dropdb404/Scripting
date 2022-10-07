@@ -9,5 +9,7 @@ http://vcloud-lab.com/entries/powershell/powershell-remoting-over-https-using-se
 http://vcloud-lab.com/entries/powershell/powershell-winrm-https-ca-signed-certificate-configuration
 http://vcloud-lab.com/entries/powershell/powershell-ps-remoting-between-standalone-workgroup-computers
 http://vcloud-lab.com/entries/powershell/configure-powershell-winrm-to-use-openssl-generated-self-signed-certificate
-
-
+https://learn.microsoft.com/en-us/windows/win32/winrm/authentication-for-remote-connections
+https://adamtheautomator.com/winrm-ssl/
+https://learn.microsoft.com/en-us/powershell/module/pki/new-selfsignedcertificate?view=windowsserver2022-ps
+https://social.technet.microsoft.com/Forums/en-US/0209e182-c196-4e63-9974-a55e2b7d3bcb/client-certificatebased-authentication-stopped-working-for-ps-remoting?forum=winserversecurity

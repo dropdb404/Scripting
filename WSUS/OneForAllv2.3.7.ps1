@@ -38,7 +38,7 @@ ForEach ($Server in $List) {
             $wsuscopy | out-file -filepath c:\hotfix\checking\WSUSCOPY.BAT -encoding ASCII
             $wsusulog | out-file -filepath c:\hotfix\checking\WSUSULOG.BAT -encoding ASCII
 
-            #Set-ItemProperty -Path 'HKCU:Software\Microsoft\Windows\CurrentVersion\Internet Settings' -Name AutoConfigURL -Value 'http://proxy.corp.hkjc.com:8080/proxy.pac'
+            #Set-ItemProperty -Path 'HKCU:Software\Microsoft\Windows\CurrentVersion\Internet Settings' -Name AutoConfigURL -Value 'http://proxy.corp.com:8080/proxy.pac'
             if ((Get-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings").AutoConfigURL) {
                 Remove-ItemProperty -Path 'HKCU:Software\Microsoft\Windows\CurrentVersion\Internet Settings' -Name AutoConfigURL
             }
