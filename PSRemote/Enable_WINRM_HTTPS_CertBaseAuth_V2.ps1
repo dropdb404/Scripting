@@ -50,7 +50,12 @@ winrm set winrm/config/client '@{TrustedHosts="*"}'
 winrm set winrm/config/client '@{AllowUnencrypted="false"}'
 
 #Generate self-side client certificate for WINRM server to trust and map as local user
-$winClientCert = New-SelfSignedCertificate -Type Custom -Subject "cn=PSRemote" -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2","2.5.29.17={text}upn=PSRemote@localhost") -KeyUsage DigitalSignature,KeyEncipherment -NotAfter ((Get-Date).AddYears(10)) -KeyAlgorithm RSA -KeyLength 2048 -CertStoreLocation Cert:\CurrentUser\My\
+if ([System.Environment]::OSVersion.Version.major -ge 10) {
+    $winClientCert = New-SelfSignedCertificate -Type Custom -Subject "cn=PSRemote" -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2","2.5.29.17={text}upn=PSRemote@localhost") -KeyUsage DigitalSignature,KeyEncipherment -NotAfter ((Get-Date).AddYears(10)) -KeyAlgorithm RSA -KeyLength 2048 -CertStoreLocation Cert:\CurrentUser\My\
+} else {
+    write-host "OS version too old, built-in New-SelfSignedCertificate cmdlet NOT supported."
+    exit
+}
 Export-Certificate -Cert $winClientCert  -FilePath .\PSRemote.cer
 
 #Establish PSRemote session with Credential, copy the cert to WINRM server, import it, create local admin user and map the cert to it
