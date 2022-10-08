@@ -93,8 +93,8 @@ Invoke-Command -Session $TEMPSESSION -ScriptBlock {
         Add-LocalGroupMember -Group Administrators -Member PSRemote
     }
     
-    Start-Sleep -Seconds 300
-    #Wait the Certifiate Store to refresh wait 300 seconds), otherwise the client certificate mapping will fail due to cert store net yet update.
+    Start-Sleep -Seconds 30
+    #Wait the Certifiate Store to refresh wait 30 seconds), otherwise the client certificate mapping will fail due to cert store net yet update.
     #Get-ChildItem -path Cert: -recurse
     $Credential=New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList ".\PSRemote",$PSRemotePASSWORD
     New-Item -Path WSMan:\localhost\ClientCertificate -Subject "PSRemote@localhost" -URI * -Issuer $Thumbprint -Credential $Credential -force
