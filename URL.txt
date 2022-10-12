@@ -13,3 +13,7 @@ https://learn.microsoft.com/en-us/windows/win32/winrm/authentication-for-remote-
 https://adamtheautomator.com/winrm-ssl/
 https://learn.microsoft.com/en-us/powershell/module/pki/new-selfsignedcertificate?view=windowsserver2022-ps
 https://social.technet.microsoft.com/Forums/en-US/0209e182-c196-4e63-9974-a55e2b7d3bcb/client-certificatebased-authentication-stopped-working-for-ps-remoting?forum=winserversecurity
+https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-security
+https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/smbv1-microsoft-network-client-digitally-sign-communications-always
+https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/microsoft-network-client-digitally-sign-communications-always
+

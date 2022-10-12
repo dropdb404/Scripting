@@ -50,21 +50,31 @@ function enforce-tls-versions
 function disable-weak-ciphers{
 # Disable insecure/weak ciphers.
 $insecureCiphers = @(
-  'DES 56/56',
-  'NULL',
-  'RC2 128/128',
-  'RC2 40/128',
-  'RC2 56/128',
-  'RC4 40/128',
-  'RC4 56/128',
-  'RC4 64/128',
-  'RC4 128/128',
-  'Triple DES 168'
+	'DES 56/56',
+	'NULL',
+	'RC2 128/128',
+	'RC2 40/128',
+	'RC2 56/128',
+	'RC4 40/128',
+	'RC4 56/128',
+	'RC4 64/128',
+	'RC4 128/128',
+	'Triple DES 168',
+	'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384_P384',
+	'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256_P256',
+	'TLS_ECDHE_ECDSA_WITH_AES_128_GCM',
+	'TLS_ECDHE_ECDSA_WITH_AES_256_GCM',
+	'TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256',
+	'TLS_RSA_RSA_WITH_AES_256_GCM_SHA384',
+	'TLS_RSA_RSA_WITH_AES_128_GCM_SHA256',
+	'TLS_RSA_ECDSA_WITH_CHACHA20_POLY1305_SHA256'
 )
+
 Foreach ($insecureCipher in $insecureCiphers) {
   $key = (Get-Item HKLM:\).OpenSubKey('SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers', $true).CreateSubKey($insecureCipher)
   $key.SetValue('Enabled', 0, 'DWord')
   $key.close()
+  #Disable-TlsCipherSuite -name $insecureCipher
   Write-Host "Weak cipher $insecureCipher has been disabled."
 }
 
