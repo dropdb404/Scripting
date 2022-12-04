@@ -17,3 +17,6 @@ https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-securit
 https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/smbv1-microsoft-network-client-digitally-sign-communications-always
 https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/microsoft-network-client-digitally-sign-communications-always
 
+https://learn.microsoft.com/en-us/archive/blogs/askcore/windows-performance-monitor-disk-counters-explained
+
+
