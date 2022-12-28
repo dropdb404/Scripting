@@ -20,3 +20,7 @@ https://learn.microsoft.com/en-us/windows/security/threat-protection/security-po
 https://learn.microsoft.com/en-us/archive/blogs/askcore/windows-performance-monitor-disk-counters-explained
 
 
+G:\temp\pandoc-2.19.2>pandoc "C:\Users\sfxslcl\Desktop\SG\DHCP_rebuild_v2.docx" -o test2.md -t gfm --extract-media=./images/
+
+
+
