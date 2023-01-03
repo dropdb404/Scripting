@@ -201,6 +201,9 @@ function Find-PSOneDuplicateFile
 }
 
 
+# Change pagecode/encoding to support non-english path and filenames.
+$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+
 # get path to personal documents folder
 #$Path = [Environment]::GetFolderPath('MyDocuments')
 $path = "D:\Mortage"
@@ -220,3 +223,4 @@ $result = Find-PSOneDuplicateFile -Path $Path -size 1000000 -Filter *.pdf
 }
 #} | Format-Table -GroupBy Hash -Property FullName
 } | Sort-Object -Property Hash,Name,FullName | Format-table -Property Hash,Name,Length,FullName -AutoSize
+#} | Sort-Object -Property Hash,Name,FullName | Export-Csv -Append -NoTypeInformation -Force -encoding utf8 -path "G:\temp\hash.csv"
