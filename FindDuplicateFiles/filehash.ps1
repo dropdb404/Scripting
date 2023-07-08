@@ -1,56 +1,21 @@
 ﻿$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
-$path = "F:\H_uncensored_leak"
-$Files=Get-ChildItem -Recurse $path
+$paths = @("F:\H_uncensored_leak","D:\H","D:\Bitcomet_completed","e:","\\192.168.3.129\wd6tb","\\192.168.3.129\h")
+#$paths = @("\\192.168.3.129\wd6tb","\\192.168.3.129\h")
 
-Foreach ($file in $Files){
-    if ($file.Length -gt 100000000) {
-        Get-FileHash -LiteralPath $file.FullName -File -Algorithm SHA1 | Export-Csv -Append -NoTypeInformation -Force -encoding utf8 -path "G:\temp\hash.csv"
-    }
-}
+$skip=(import-csv "G:\temp\hash.csv").path
 
-$path = "D:\H"
-$Files=Get-ChildItem -Recurse $path
-
-Foreach ($file in $Files){
-    if ($file.Length -gt 100000000) {
-        Get-FileHash -LiteralPath $file.FullName -File -Algorithm SHA1 | Export-Csv -Append -NoTypeInformation -Force -encoding utf8 -path "G:\temp\hash.csv"
-    }
-}
-
-$path = "D:\Bitcomet_completed"
-$Files=Get-ChildItem -Recurse $path
-
-Foreach ($file in $Files){
-    if ($file.Length -gt 100000000) {
-        Get-FileHash -LiteralPath $file.FullName -File -Algorithm SHA1 | Export-Csv -Append -NoTypeInformation -Force -encoding utf8 -path "G:\temp\hash.csv"
-    }
-}
-
-$path = "e:"
-$Files=Get-ChildItem -Recurse $path
-
-Foreach ($file in $Files){
-    if ($file.Length -gt 100000000) {
-        Get-FileHash -LiteralPath $file.FullName -File -Algorithm SHA1 | Export-Csv -Append -NoTypeInformation -Force -encoding utf8 -path "G:\temp\hash.csv"
-    }
-}
-
-
-$path = "\\192.168.3.129\wd6tb"
-$Files=Get-ChildItem -Recurse $path
-
-Foreach ($file in $Files){
-    if ($file.Length -gt 100000000) {
-        Get-FileHash -LiteralPath $file.FullName -File -Algorithm SHA1 | Export-Csv -Append -NoTypeInformation -Force -encoding utf8 -path "G:\temp\hash.csv"
-    }
-}
-
-$path = "\\192.168.3.129\h"
-$Files=Get-ChildItem -Recurse $path
-
-Foreach ($file in $Files){
-    if ($file.Length -gt 100000000) {
-        Get-FileHash -LiteralPath $file.FullName -File -Algorithm SHA1 | Export-Csv -Append -NoTypeInformation -Force -encoding utf8 -path "G:\temp\hash.csv"
+Foreach ($path in $paths) {
+    $Files=Get-ChildItem -Recurse $path
+    Foreach ($file in $Files){
+        if ($file.Length -gt 100000000) {           
+            if ($skip.contains($file.fullname)) {
+            write-host "$file.fullname already hashed,skip."
+            } else {
+                Get-FileHash -LiteralPath $file.FullName -Algorithm SHA1 | Export-Csv -Append -NoTypeInformation -Force -encoding utf8 -path "G:\temp\hash.csv"
+                write-host $file.fullname hashed.
+                pause
+            }
+        }
     }
 }
