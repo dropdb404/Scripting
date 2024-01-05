@@ -24,3 +24,27 @@ G:\temp\pandoc-2.19.2>pandoc "C:\Users\sfxslcl\Desktop\SG\DHCP_rebuild_v2.docx" 
 
 
 
+$ProcessInfo = New-Object System.Diagnostics.ProcessStartInfo 
+$ProcessInfo.FileName = "dism.exe" 
+$ProcessInfo.RedirectStandardError = $true 
+$ProcessInfo.RedirectStandardOutput = $true 
+$ProcessInfo.UseShellExecute = $false 
+$ProcessInfo.Arguments = "/Online /Cleanup-Image /AnalyzeComponentStore" 
+$Process = New-Object System.Diagnostics.Process 
+$Process.StartInfo = $ProcessInfo 
+$Process.Start() | Out-Null 
+$Process.WaitForExit() 
+$output = $Process.StandardOutput.ReadToEnd() 
+$output 
+
+
+Dism.exe /online /Cleanup-Image /StartComponentCleanup
+
+
+Start-Process -NoNewWindow dism.exe -ArgumentList "/Online","/Cleanup-Image","/AnalyzeComponentStore"
+
+
+$output = cmd /r 'dism /Online /Cleanup-Image /AnalyzeComponentStore'
+write-host $output[$output.count -3]
+if (($output[$output.count -3] -split " : ")[0] -like "Component Store Cleanup Recommended" -and ($output[$output.count -3] -split " : ")[1] -eq "No") {write-host "hello"}
+
