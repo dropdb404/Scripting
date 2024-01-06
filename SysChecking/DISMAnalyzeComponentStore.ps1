@@ -40,8 +40,8 @@ $result=[PSCustomObject]@{
     BackupsandDisabledFeatures=$BackupsandDisabledFeatures;
     CacheandTemporaryData=$CacheandTemporaryData;
     DateofLastCleanup=$DateofLastCleanup;
-    ComponentStoreCleanupRecommended=$ComponentStoreCleanupRecommended;
-    NumberofReclaimablePackages=$NumberofReclaimablePackages    
+    NumberofReclaimablePackages=$NumberofReclaimablePackages;
+    ComponentStoreCleanupRecommended=$ComponentStoreCleanupRecommended  
 }
 
 $result
