@@ -48,3 +48,11 @@ $output = cmd /r 'dism /Online /Cleanup-Image /AnalyzeComponentStore'
 write-host $output[$output.count -3]
 if (($output[$output.count -3] -split " : ")[0] -like "Component Store Cleanup Recommended" -and ($output[$output.count -3] -split " : ")[1] -eq "No") {write-host "hello"}
 
+if (Get-Process bitcomet) {get-counter "\Process(bitcomet)\IO Data Bytes/sec"}
+
+https://stackoverflow.com/questions/15749139/network-usage-of-process-using-powershell
+
+https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-7.4
+
+(get-counter -list "process").paths
+(get-counter -list "Network Interface").paths
