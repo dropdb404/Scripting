@@ -1,0 +1,19 @@
+{
+    "tag": "in-proxy-trojan",
+    "protocol": "trojan",
+    "listen": "127.0.0.1",
+    "port": 10000,
+    "settings": {
+        "clients": [
+            {
+                "password": "Mucha@1024"
+            }
+        ]
+    },
+    "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+            "path": "/faq"
+        }
+    }
+}
