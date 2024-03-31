@@ -1,19 +1,68 @@
 {
-    "tag": "in-proxy-trojan",
-    "protocol": "trojan",
-    "listen": "127.0.0.1",
-    "port": 10000,
-    "settings": {
+  "log": {
+    "loglevel": "warning",
+    "access": "/var/log/v2fly/access.log",
+    "error": "/var/log/v2fly/error.log"
+  },
+  "inbounds": [
+    {
+      "port": 10000,
+      "listen": "127.0.0.1",
+      "protocol": "trojan",
+      "settings": {
+        "decryption": "none",
         "clients": [
-            {
-                "password": "Mucha@1024"
-            }
+          {
+            "email": "dropdb@gmail.com",
+            "password": "Mucha@1024"
+          }
         ]
-    },
-    "streamSettings": {
+      },
+      "streamSettings": {
         "network": "ws",
+        "security": "none",
         "wsSettings": {
-            "path": "/faq"
+          "path": "/faq",
+          "headers": {}
         }
+      },
+      "tag": "",
+      "sniffing": {
+        "enabled": true,
+        "destOverride": [
+          "http",
+          "tls"
+        ]
+      }
     }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "blocked",
+        "type": "field"
+      },
+      {
+        "outboundTag": "blocked",
+        "protocol": [
+          "bittorrent"
+        ],
+        "type": "field"
+      }
+    ]
+  }
 }
